@@ -1,6 +1,17 @@
 const express = require('express');
 const app = express();
 const uploadUser = require('./middlewares/uploadimage');
+const cors = require('cors');
+
+
+
+app.use((req,res,next) => {
+res.header("Acess-Control-Allow-Origin", "*" );
+res.header("Acess-Control-Allow-Methods", "GET, PUT, POST,DELETE");
+res.header("Acess-Control-Allow-Headers", "X-PINGOTHER, Content-Type, Authorization");
+app.use(cors());
+next();
+});
 
 app.post("/upload-image", uploadUser.single('image'), async(req,res) =>{
 if(req.file){
