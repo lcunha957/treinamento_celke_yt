@@ -7,6 +7,7 @@ import './App.css';
 function App() {
 
   const [image, setImage] = useState('');
+  const[endImg] = useState('./icone_usuario.jpg');
   const [status, setStatus] = useState({
     type:'' ,
     mensagem:'' ,
@@ -51,6 +52,8 @@ function App() {
       <form onSubmit={uploadImage}>
         <label> Imagem: </label>
         <input type="file" name="image" onChange={e => setImage(e.target.files[0])}/>
+        <br/><br/>
+        {image ? <img src={URL.createObjectURL(image)} alt="Imagem" width="150" height="150"/> : <img src={endImg} alt="imagem" width="150" height="150"/>}
         <br/><br/>
         <button type="submit">Salvar</button>
       </form>
