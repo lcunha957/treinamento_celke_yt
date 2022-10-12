@@ -4,6 +4,7 @@ const uploadUser = require('./middlewares/uploadimage');
 
 app.post("/upload-image", uploadUser.single('image'), async(req,res) =>{
 if(req.file){
+    console.log(req.file);
     return res.json({
         erro: false,
         mensagem: "upload realizado com sucesso!"
