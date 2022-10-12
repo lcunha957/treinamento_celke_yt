@@ -12,7 +12,7 @@ if(req.file){
 
  return res.status(400).json({
         erro:true,
-        mensagem: "Erro: upload não realizado"
+        mensagem: "Erro: upload não realizado, necessário enviar uma imagem em um dos  formatos: png, jpeg, jpg, gif"
     });
 
    
